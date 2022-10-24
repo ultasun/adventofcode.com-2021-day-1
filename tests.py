@@ -32,7 +32,13 @@ class TestSolution(unittest.TestCase):
         case = [333]
         expected_result = 0
         result = count_increases_from_previous_values_in_sequence(case)
-        self.assertEqual(result, expected_result)        
+        self.assertEqual(result, expected_result)
+        
+    def test_solution_test6(self):
+        case = (199, 200, 208, 210, 200, 207, 240, 269, 260, 263)
+        expected_result = 5
+        result = count_increases_from_previous_values_in_sequence(case, 3)
+        self.assertEqual(result, expected_result)
 
 if __name__ == '__main__':
     unittest.main()

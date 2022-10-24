@@ -10,41 +10,32 @@
 
 import sys
 
-def count_increases_from_previous_values_in_sequence(the_sequence, window=1):
+def count_increases_from_previous_values_in_sequence(the_sequence):
     """
     Given a list or tuple of integers, return the number of times a value in
     the sequence is greater than the previous value.
-
-    An optional 'window' size can be specified in order to accomodate 'Part 2'
-    of the problem -- this will consider differences in subsequence summations,
-    instead of single values.
 
     Returns an integer.
     """
     assert(isinstance(the_sequence, list) or isinstance(the_sequence, tuple))
 
-    # The problem isn't valid without at least `window` values in the set
-    if len(the_sequence) < (window + 1):
+    # The problem isn't valid without at least two values in the set.
+    if len(the_sequence) < 2:
         return 0
     
     increases = -1
     previous_value = -1
     try:
-        for this_frame_index in range(0, (len(the_sequence) - (window - 1))):
-            window_sum = 0
-            for this_window_index in range(0, window):
-                this_integer = \
-                    the_sequence[this_frame_index + this_window_index]
-                assert(isinstance(this_integer, int))
-                window_sum += this_integer
-            if window_sum > previous_value:
+        for this_value in the_sequence:
+            assert(isinstance(this_value, int))
+            if this_value > previous_value:
                 increases += 1
-            previous_value = window_sum
+            previous_value = this_value
     except:
         return None
 
-    return increases 
-        
+    return increases
+
 def read_integer_list_until_empty_line():
     """
     Collect a list of integers from standard input until an empty line is found.
@@ -67,15 +58,6 @@ def read_integer_list_until_empty_line():
 
 # Begin program execution if this script is invoked first by the python3 process
 if __name__ == '__main__':
-    # Find `window` size argument, if present
-    window = 1
-    if len(sys.argv) > 1:
-        try:
-            window = int(sys.argv[1])
-        except:
-            pass
-
-    # Greet and instruct the user
     print("Welcome to an 'Advent of Code 2021 - Day 1' solution.")
     print("")
     print("Enter an integer and press enter, and continue to do so until there"
@@ -83,15 +65,12 @@ if __name__ == '__main__':
           + " to begin processing.")
     numbers_list = read_integer_list_until_empty_line()
     print("")
-
-    # Do the calculation
-    the_result = \
-        count_increases_from_previous_values_in_sequence(numbers_list, window)
-
-    # Print the result and exit
+    the_result = count_increases_from_previous_values_in_sequence(numbers_list)
     print("Given that sequence, the values increased " + str(the_result)
           + " times from the previous value.")
-    print("The window sized used to perform the calculation was "
-          + str(window) + ".")
     print("")
     print("Thank you for using the software.")
+
+
+
+    
