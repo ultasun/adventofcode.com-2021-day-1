@@ -2,7 +2,7 @@
 This repository will contain a unique solution to the *Advent of Code: 2021 Day 1* challenge presented [here](https://adventofcode.com/2021/day/1).  The language used will be [Python 3](https://docs.python.org/3/).
 
 # Solution
-This section is an *English* explanation of the solution.  Several variable names used in the script are used in this explanation.
+This section is an *English* explanation of the solution.  The several variable names used in the script are also used in this explanation.
 
 ### Assumptions
 The original problem is not very specific, so the following assumptions were made by the author:
@@ -14,8 +14,8 @@ The original problem is not very specific, so the following assumptions were mad
 The [solution](https://github.com/ultasun/adventofcode.com-2021-day-1/blob/main/Attic/solution.old.py) is simple:
 1. Have two integer variables both initialized to `-1`,
 2. Iterate over the sequence with a *for each* loop,
-  - If `this_value` is larger than the `previous_value`, then increment `increases`.
-  - Set `previous_value` to equal `this_value`.
+   - If `this_value` is larger than the `previous_value`, then increment `increases`.
+   - Set `previous_value` to equal `this_value`.
 3. Return the `increases` integer as the result.
 
 ### Solution: Part 2
@@ -24,10 +24,10 @@ Quick reflection shows that *Part 1* is the same as *Part 2*, with the *window s
 The [solution](https://github.com/ultasun/adventofcode.com-2021-day-1/blob/main/solution.py):
 1. Modify the function from *Part 1* to accept a second argument: the `window` size.
 2. Discard the *for each* loop over the sequence.  Instead, iterate over an integer range, starting from `0` and stopping before *the difference between the sequence length, and the window size minus 1* -- this will be called `this_frame_index`.
-  - In each iteration, a nested iteration occurs over an integer range, starting from `0` and stopping before the `window` size -- this will be called `this_window_index`.
-    - In each iteration, accumulate (sum) a subsequence of integers in the sequence, starting at the location indexed by `this_frame_index` plus `this_window_index` -- this is the *sliding window*.  Store the accumulation in `window_sum`.
-  - After the nested iteration, if `window_sum` (which is analogous to `this_value` from *Part 1*) is larger than the `previous_value`, then increment `increases`.
-  - Set `previous_value` to equal `window_sum` (which is analogous to `this_value` from *Part 1*).
+   - In each iteration, a nested iteration occurs over an integer range, starting from `0` and stopping before the `window` size -- this will be called `this_window_index`.
+     - In each iteration, accumulate (sum) a subsequence of integers in the sequence, starting at the location indexed by `this_frame_index` plus `this_window_index` -- this is the *sliding window*.  Store the accumulation in `window_sum`.
+   - After the nested iteration, if `window_sum` (which is analogous to `this_value` from *Part 1*) is larger than the `previous_value`, then increment `increases`.
+   - Set `previous_value` to equal `window_sum` (which is analogous to `this_value` from *Part 1*).
 3. Return the `increases` integer as the result.
 
 # Code, Testing, Usage and Demonstration
@@ -54,12 +54,12 @@ The window sized used to perform the calculation was 3.
 1. If the sequence is too small, then `0` will be returned.
 2. If the sequence contains invalid data, then `None` will be returned.
 
-##### Why two scripts
+#### Why two scripts
 A convenience script has been provided, [`solution_part2.py`](https://github.com/ultasun/adventofcode.com-2021-day-1/blob/main/solution_part2.py) -- it will import everything from [`solution.py`](https://github.com/ultasun/adventofcode.com-2021-day-1/blob/main/solution.py), the only difference being the default `window` size is `3`, and the `print` messages will notify the user that the script is intended to solve *Part 2* sequences.
 
 [The convenience script](https://github.com/ultasun/adventofcode.com-2021-day-1/blob/main/solution_part2.py) is not used in any of the following examples.  Instead, the `window` size is adjusted in the following examples by providing a `3` as a command-line argument to the `python3` process.
 
-##### Simple solution for *Part 1* only
+#### Simple solution for *Part 1* only
 The original code written prior to *Part 2* is found in [`Attic/solution.old.py`](https://github.com/ultasun/adventofcode.com-2021-day-1/blob/main/Attic/solution.old.py).
 
 ### Part 1: Demo
