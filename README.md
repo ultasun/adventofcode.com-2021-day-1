@@ -45,6 +45,8 @@ Thank you for using the software.
 root@d60890761729:/src/ultasun/adventofcode.com-2021-day-1# 
 ```
 
+The much longer *Advent Of Code* example may be seen [here](https://github.com/ultasun/adventofcode.com-2021-day-1/blob/main/advent_of_code_test_case.txt), the correct answer was `1532`.
+
 # Credits
 See the `LICENSE`.  The code in this repository is the original work of the repository owner.  The challenge problem is from [Advent of Code](https://adventofcode.com/).
 
