@@ -26,7 +26,13 @@ class TestSolution(unittest.TestCase):
         case = (123, 'nonsense', 456)
         expected_result = None
         result = count_increases_from_previous_values_in_sequence(case)
-        self.assertEqual(result, expected_result)       
+        self.assertEqual(result, expected_result)
+
+    def test_solution_test5(self):
+        case = [333]
+        expected_result = 0
+        result = count_increases_from_previous_values_in_sequence(case)
+        self.assertEqual(result, expected_result)        
 
 if __name__ == '__main__':
     unittest.main()

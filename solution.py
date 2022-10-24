@@ -25,11 +25,14 @@ def count_increases_from_previous_values_in_sequence(the_sequence):
     
     increases = -1
     previous_value = -1
-    for this_value in the_sequence:
-        assert(isinstance(this_value, int))
-        if this_value > previous_value:
-            increases += 1
-        previous_value = this_value
+    try:
+        for this_value in the_sequence:
+            assert(isinstance(this_value, int))
+            if this_value > previous_value:
+                increases += 1
+            previous_value = this_value
+    except:
+        return None
 
     return increases
 
