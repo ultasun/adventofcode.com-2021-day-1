@@ -25,13 +25,39 @@ def count_increases_from_previous_values_in_sequence(the_sequence):
     
     increases = -1
     previous_value = -1
+    average_so_far = 0
+    total_sum_so_far = 0
+    iterations_so_far = 0
     try:
         for this_value in the_sequence:
-            assert(isinstance(this_value, int))
-            if this_value > previous_value:
+            if not isinstance(this_value, int):
+                print("invalide value: not an integer")
+                return None
+
+            # assumption 1: make sure this_value is greater than zero
+            if not this_value > 0:
+                print("invalid value: less than zero")
+                return None
+            
+            iterations_so_far += 1
+            total_sum_so_far += this_value
+            
+            #if this_value > previous_value:
+            #    increases += 1
+
+            if (total_sum_so_far / iterations_so_far) < this_value:
                 increases += 1
+            
             previous_value = this_value
-    except:
+
+            # print out values
+            print("iterations_so_far: " + str(iterations_so_far))
+            print("total_sum_so_far: " + str(total_sum_so_far))
+            print("increases: " + str(increases))
+            print("previous_value: " + str(previous_value))
+
+    except BaseException as e:
+        print("An error occurred: " + str(e))
         return None
 
     return increases
