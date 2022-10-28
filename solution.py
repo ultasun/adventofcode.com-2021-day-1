@@ -21,26 +21,37 @@ def count_increases_from_previous_values_in_sequence(the_sequence, window=1):
 
     Returns an integer.
     """
-    assert(isinstance(the_sequence, list) or isinstance(the_sequence, tuple))
-
-    # The problem isn't valid without at least `window` values in the set
-    if len(the_sequence) < (window + 1):
-        return 0
     
     increases = -1
     previous_value = -1
     try:
+        assert(isinstance(the_sequence, list)
+               or isinstance(the_sequence, tuple))
+
+        # The problem isn't valid without at least `window` values in the set
+        if len(the_sequence) < (window + 1):
+            return 0
+        
         for this_frame_index in range(0, (len(the_sequence) - (window - 1))):
             window_sum = 0
             for this_window_index in range(0, window):
                 this_integer = \
                     the_sequence[this_frame_index + this_window_index]
                 assert(isinstance(this_integer, int))
+                if this_integer <= 0:
+                    raise ValueError("No negative values allowed in this"
+                                     + " function, next sequence value was: "
+                                     + str(this_value))
                 window_sum += this_integer
             if window_sum > previous_value:
                 increases += 1
             previous_value = window_sum
-    except:
+    except BaseException as e:
+        print("An error occurred in function "
+              + "'count_increases_from_previous_value_in_sequence':" + str(e))
+        print("previous_value: " + str(previous_value))
+        print("increases: " + str(increases))
+        
         return None
 
     return increases 
