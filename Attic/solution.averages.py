@@ -23,8 +23,6 @@ def count_increases_from_average_values_in_sequence(the_sequence):
     Returns 0 if the sequence is too short.
     Returns None if an error occured and prints the error/exception to stdout.
     """
-
-    
     increases = -1
     previous_value = -1
 
@@ -98,7 +96,3 @@ if __name__ == '__main__':
           + " times from the average sequence value.")
     print("")
     print("Thank you for using the software.")
-
-
-
-    

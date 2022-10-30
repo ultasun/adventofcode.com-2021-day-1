@@ -20,8 +20,7 @@ def count_increases_from_previous_values_in_sequence(the_sequence, window=1):
     instead of single values.
 
     Returns an integer.
-    """
-    
+    """    
     increases = -1
     previous_value = -1
     try:
