@@ -62,6 +62,9 @@ A convenience script has been provided, [`solution_part2.py`](https://github.com
 #### Simple solution for *Part 1* only
 The original code written prior to *Part 2* is found in [`Attic/solution.old.py`](https://github.com/ultasun/adventofcode.com-2021-day-1/blob/main/Attic/solution.old.py).
 
+#### `solution.averages.py`
+During a meeting, it was requested to adjust the algorithm to compare the *average value so far* against `this_value`, and this change is reflected in [`solutions.averages.py`)(https://github.com/ultasun/adventofcode.com-2021-day-1/blob/main/Attic/solution.averages.py), which is found in the `Attic/` folder of this repository.
+
 ### Part 1: Demo
 ```
 root@d60890761729:/src/ultasun/adventofcode.com-2021-day-1# python3 ./solution.py
